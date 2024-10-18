@@ -6,7 +6,7 @@ import cors from "cors";
 var app = express();
 
 var corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.LOCAL_FRONTEND_URL,
   credentials: true, // Enable credentials
 };
 app.use(cors(corsOptions));
@@ -20,12 +20,18 @@ const openai = new OpenAI({
 
 app.post('/prompt', function (req, res) {  
   const clientId = ensureClientId(req, res);
-  generateChatResponse(clientId, req.body.prompt, res);
+  res.send({completion: "A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction"})
+  //generateChatResponse(clientId, req.body.prompt, res);
 })
 
 app.get('/', function (req, res) {
   const clientId = ensureClientId(req, res);
-  generateChatResponse(clientId, "Please provide an introduction to the site!", res);
+  res.send({completion: "A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response"})
+  //generateChatResponse(clientId, "Please provide an introduction to the site!", res);
+})
+
+app.get('/is-secret', function (req, res) {
+  res.send({is_secret_phrase: process.env.SECRET_PHRASE == req.body.prompt})
 })
 
 const conversationHistory = new Map();
@@ -103,6 +109,7 @@ function generateClientId() {
   return 'client-' + Math.random().toString(36).substr(2, 9);
 }
 
-app.listen(5000, function () {
-   console.log("Express App running at http://127.0.0.1:5000/");
+app.listen(process.env.BACKEND_PORT, function () {
+   console.log("Express App running at http://127.0.0.1:" + process.env.BACKEND_PORT);
+   console.log("Allowing requests from: " + process.env.LOCAL_FRONTEND_URL);
 })
