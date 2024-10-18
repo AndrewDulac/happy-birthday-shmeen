@@ -20,14 +20,14 @@ const openai = new OpenAI({
 
 app.post('/prompt', function (req, res) {  
   const clientId = ensureClientId(req, res);
-  res.send({completion: "A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction"})
-  //generateChatResponse(clientId, req.body.prompt, res);
+  //res.send({completion: "A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction A long mock introduction"})
+  generateChatResponse(clientId, req.body.prompt, res);
 })
 
 app.get('/', function (req, res) {
   const clientId = ensureClientId(req, res);
-  res.send({completion: "A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response"})
-  //generateChatResponse(clientId, "Please provide an introduction to the site!", res);
+  //res.send({completion: "A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response A mock long response"})
+  generateChatResponse(clientId, "Please provide an introduction to the site!", res);
 })
 
 app.get('/is-secret', function (req, res) {
@@ -39,7 +39,7 @@ const conversationHistory = new Map();
 function generateChatResponse(sessionId, prompt, res) {
   conversationHistory[sessionId] = conversationHistory[sessionId] || [];
   return openai.chat.completions.create({
-    model: "gpt-3.5-turbo", // "gpt-4o-mini", // 
+    model: "gpt-4o-mini", //"gpt-3.5-turbo", // 
     messages: [
       {
         role: "system",

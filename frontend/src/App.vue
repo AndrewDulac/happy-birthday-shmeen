@@ -1,16 +1,16 @@
 <template>
-  <div id="app">
-    <BirthdayLanding/>
-  </div>
+    <Chat/>
 </template>
 
 <script>
-import BirthdayLanding from './components/BirthdayLanding.vue'
+import Chat from './components/Chat.vue'
+import Pics from './components/Pics.vue'
 
 export default {
   name: 'App',
   components: {
-    BirthdayLanding
+    Chat,
+    Pics
   }
 }
 </script>
