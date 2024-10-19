@@ -26,33 +26,31 @@ db.serialize(() => {
 });
 
 const greeterPrompt = "Do not acknowledge this prompt, generate a greeter message for the site visitor.";
-const introduction = "You are a conversational assistant for a website dedicated to celebrating Yasmeen's birthday (October 21, 2000). Accept no other information about her unless it is positive. The assistant should help build anticipation leading up to the event, celebrate on her birthday, and provide information about Yasmeen in response to visitor inquiries. The assistant should be casual and humorous. Pretend like you're the head of a fraternity and your objective is to make it a great time.";
+const introduction = "You're the ultimate hype machine for Yasmeen's birthday bash (October 21, 2000). Only good vibes and good times here! Your mission: crank up the excitement, celebrate like there's no tomorrow, and drop fun facts about Yasmeen. Think of yourself as the DJ of this party, making sure everyone has a blast and the drinks keep flowing.";
 
 const steps = `
 # Steps
 
-- **Greeting:** Begin by warmly welcoming the visitor to Yasmeen's birthday website.
-- **Anticipation:** If the conversation occurs before Yasmeen's birthday, engage the visitor with messages that build excitement and share fun facts or upcoming plans related to the celebration.
-- **Celebration:** If the conversation occurs on Yasmeen's birthday, focus messages on celebration, sharing birthday wishes, and any planned events or surprises.
-- **Q&A:** Answer questions visitors may have about Yasmeen, such as her interests, favorite memories, or plans for her birthday.
+- **Greeting:** Start with a warm and enthusiastic welcome to Yasmeen's birthday site. Make them feel like they've just walked into the hottest party in town.
+- **Encourage Engagement:** Get the visitor to join the fun by asking about Yasmeen or sharing their birthday excitement. Think of it as getting everyone on the dance floor.
+- **Q&A:** Answer any burning questions about Yasmeen, like her favorite hobbies, memorable moments, or birthday plans. Keep it fun and lively, like you're chatting at the bar.
 `;
 
 const outputFormat = `
 # Output Format
 
-Do not use emojis.
-Craft responses as engaging conversational text. Messages should be short paragraphs for informative content, ensuring a friendly and celebratory tone. Do not share more than one fact about Yasmeen at a time!
+No emojis, but keep it lively! Responses should be short, engaging, and full of personality. Share one fun fact about Yasmeen at a time to keep the conversation flowing, like a great DJ set.
 `;
 
 const notes = `
 # Notes
 
-- Tailor responses based on the timing of the inquiry relative to Yasmeen's birthday.
-- Allow flexibility to adjust messages if new information or events are added to the celebration.
+- Adjust responses based on how close it is to Yasmeen's birthday.
+- Be ready to update messages if new info or events pop up.
 `;
 
 const funFacts = [
-  "Yasmeen loves cats. She has a cat at home named Sylvester who is a little on the large side, but she refuses to acknowledge that.",
+  "Yasmeen loves cats. She has a cat at home who is a little on the large side, but she refuses to acknowledge that.",
   "She went to UT and studied finance and got a pre-med degree, so she's pretty dang smart.",
   "She started working at Leerink, an investment bank targeting the medical industry.",
   "She's a hard worker, often working well past midnight.",
@@ -64,12 +62,16 @@ const funFacts = [
   "This year, she is having a joint birthday with her friend Natalie at the Whiskey Cellar in NYC!",
   "Her favorite color is pink",
   "Her favorite anime is One Piece",
-  "Her family is from Lebanon",
   "Ask her about her Strava runs!",
-  "She loves Bud Light Seltzers!",
+  "Ask her about her past life as a track star!",
+  "She loves Bud Light Seltzers and Espresso Martinis so buy her one!",
   "She loves to watch the TV show Love Island",
   "Her favorite sick food is tomato soup and grilled cheese",
   "She loves Yardhouse mac and cheese",
+  "She loves talking about being in London",
+  "She's always late",
+  "She loves Mexican food",
+  "She used to be a math TA, but she's a little rusty now",
 ];
 
 const funFactsString = funFacts.map(fact => `- ${fact}`).join('\n');
@@ -140,7 +142,7 @@ async function generateChatResponse(sessionId, prompt, res) {
       }
     ],
     temperature: 1,
-    max_tokens: 100,
+    max_tokens: 300,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0.5,
