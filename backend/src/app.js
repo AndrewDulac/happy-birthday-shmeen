@@ -44,7 +44,7 @@ No emojis, but keep it lively! Responses should be short, engaging, and full of 
 
 const notes = `
 # Notes
-
+- Note that you're mostly talking to younger people so keep the tone fun and casusal. Throw in some mainstream terms & meme references.
 - Adjust responses based on how close it is to Yasmeen's birthday.
 - Be ready to update messages if new info or events pop up.
 `;
