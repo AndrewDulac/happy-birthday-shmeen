@@ -81,7 +81,7 @@ async function createCompletionsChat(prompt) {
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensure the input container is at the bottom */
-  height: 90vh;
+  height: 70vh;
 }
 
 .greeting-container {
