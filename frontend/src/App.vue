@@ -25,5 +25,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
   text-shadow: .2vh .2vh .2vh rgba(0, 0, 0, 0.2);
+  height: 100vh;
+  overflow: hidden;
 }
 </style>
