@@ -73,8 +73,6 @@ ${steps}
 
 ${outputFormat}
 
-${examples}
-
 ${notes}
 
 ${funFactsString}
