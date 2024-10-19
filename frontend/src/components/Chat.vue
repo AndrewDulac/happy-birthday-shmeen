@@ -62,48 +62,61 @@ async function createCompletionsChat(prompt) {
 
 <template>
     <div class="landing-page">
-      <p class="greeting-header">{{ quote }}</p>
-        <div class="input-container">
-            <textarea type="text" placeholder="Have anything to say?" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' 
-            v-model="userPrompt"/>
-            <button
-            @click="createCompletionsChat(userPrompt)" >
-            <i class="send-icon">Send</i>
-            </button>
-        </div>
+      <div class="greeting-container">
+        <p class="greeting-header">{{ quote }}</p>
+      </div>
+      <div class="input-container">
+        <textarea class="input-text" type="text" placeholder="Have anything to say?" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' v-model="userPrompt"></textarea>
+        <button @click="createCompletionsChat(userPrompt)">
+          <i class="send-icon">Send</i>
+        </button>
+      </div>
     </div>
-</template>
+  </template>
 
 <style scoped>
 .landing-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure the input container is at the bottom */
+  height: 90vh;
+}
+
+.greeting-container {
+  flex: 1;
+  overflow: auto; /* Make it scrollable */
+  padding: 10px;
 }
 
 .greeting-header {
-    font-size: 2.5em;
-    font-weight: 500;
-    margin: 0.5em 0;
-    background-image: linear-gradient(to bottom left, #553c9a, #ee4b2b);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 0.5em 0;
+  background-image: linear-gradient(to bottom left, #553c9a, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* Ensure this part is not editable */
+  pointer-events: none;
+  user-select: none;
 }
+
 .input-container {
   display: flex;
   align-items: center;
   background-color: #d1daec;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
-textarea {
+.input-text {
   flex: 1;
   background: none;
-  font-size:1.2em;
+  font-size: 1.2rem;
   border: none;
   color: rgb(10, 4, 99);
   padding: 10px;
@@ -113,7 +126,6 @@ textarea {
   white-space: pre-wrap; /* Preserve white space and wrap text */
   word-wrap: break-word;
 }
-
 
 input::placeholder {
   color: #ccc;
@@ -126,5 +138,4 @@ button {
   border-radius: 10px;
   cursor: pointer;
 }
-
 </style>
