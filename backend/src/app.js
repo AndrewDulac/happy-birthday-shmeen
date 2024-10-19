@@ -77,8 +77,6 @@ ${notes}
 
 ${funFactsString}
 `;
-
-console.log(finalString);
 const openai = new OpenAI({
   apiKey: process.env.VITE_OPEN_API_KEY,
 });
