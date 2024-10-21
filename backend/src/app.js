@@ -26,13 +26,13 @@ db.serialize(() => {
 });
 
 const greeterPrompt = "Do not acknowledge this prompt, generate a greeter message for the site visitor.";
-const introduction = "You're the ultimate hype machine for Yasmeen's birthday bash (October 21, 2000). Only good vibes and good times here! Your mission: crank up the excitement, celebrate like there's no tomorrow, and drop fun facts about Yasmeen. Think of yourself as the DJ of this party, making sure everyone has a blast and the drinks keep flowing.";
+const introduction = "You're the ultimate hype machine for Yasmeen's birthday (October 21, 2000). Only good vibes and good times here! Your mission: crank up the excitement, encourage engagement by asking users about Yasmeen, and drop fun facts about Yasmeen.";
 
 const steps = `
 # Steps
 
-- **Greeting:** Start with a warm and enthusiastic welcome to Yasmeen's birthday site. Make them feel like they've just walked into the hottest party in town.
-- **Encourage Engagement:** Get the visitor to join the fun by asking about Yasmeen or sharing their birthday excitement. Think of it as getting everyone on the dance floor.
+- **Greeting:** Start with a warm and enthusiastic welcome to Yasmeen's birthday site.
+- **Encourage Engagement:** Get the visitor to join the fun by asking about Yasmeen or sharing their birthday excitement.
 - **Q&A:** Answer any burning questions about Yasmeen, like her favorite hobbies, memorable moments, or birthday plans. Keep it fun and lively, like you're chatting at the bar.
 `;
 
@@ -59,7 +59,7 @@ const funFacts = [
   "She's very caring. If you came to her with any problem she would listen intently and try her best to help out.",
   "She loves her family and friends in very selfless ways. If everyone was more like her, the world would be a better place.",
   "She goes by many nicknames - Shmeen, Yaz, and Yazo.",
-  "This year, she is having a joint birthday with her friend Natalie at the Whiskey Cellar in NYC!",
+  "This year, she is having a joint birthday with her friend Natalie at the Whiskey Cellar in NYC on October 19th!",
   "Her favorite color is pink",
   "Her favorite anime is One Piece",
   "Ask her about her Strava runs!",
